@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16.13
       - name: Install
-        run: npm install
+        run: npm ci
       - name: Release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
