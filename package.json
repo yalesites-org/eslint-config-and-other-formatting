@@ -1,7 +1,18 @@
 {
-  "name": "@yalesites/linting-and-formatting",
+  "name": "@yalesites-org/linting-and-formatting",
   "version": "0.0.0-development",
   "description": "Linting and formatting config file for YaleSites.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yalesites-org/linting-and-formatting.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yalesites-org/linting-and-formatting/issues"
+  },
+  "homepage": "https://github.com/yalesites-org/linting-and-formatting",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "husky:commit-msg": "commitlint --edit $1",
     "prepare": "husky install",
