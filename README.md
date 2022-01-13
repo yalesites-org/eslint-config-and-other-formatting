@@ -10,6 +10,23 @@ YaleSites projects are expected to follow a consistent linting and formatting co
 
 ## Installation
 
+### Prerequisites
+
+You need to have a `.npmrc` file that specifies to get `@yalesites-org` packages from GitHub rather than npm, as well as a personal access token in order to use this project as a GitHub package.
+
+- Copy the `.npmrc-example` from from this repo into your project, and rename it to `.npmrc`
+- Go to https://github.com/settings/tokens/new
+  - In the "Note" field add something like "YaleSites GitHub Packages"
+  - Choose an expiration value
+  - Check the box for "write:packages" (this will automatically check all of the "repo" boxes as well)
+  - Click "Generate token"
+- In your terminal type `npm login --scope=@yalesites --registry=https://npm.pkg.github.com`
+- Username is your GitHub username (all lower case)
+- Password is the token you just created
+- Email is your public email address
+
+### Installing the pacakge
+
 ```bash
 npm install --save-dev @yalesites/linting-and-formatting
 ```
@@ -18,9 +35,8 @@ npm install --save-dev @yalesites/linting-and-formatting
 
 Add the following to `package.json`:
 
-```jsonc
+```json
 {
-  // ...
   "prettier": "@yalesites/linting-and-formatting/prettier.config"
 }
 ```
@@ -32,5 +48,15 @@ Create `commitlint.config.js` and add the following:
 ```js
 module.exports = {
   extends: ['@yalesites/config-commitlint'],
+};
+```
+
+## Stylelint config
+
+Create `stylelint.config.js` and add the following:
+
+```js
+module.exports = {
+  extends: ['@yalesites/linting-and-formatting/stylelint.config'],
 };
 ```
