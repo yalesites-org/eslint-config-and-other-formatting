@@ -1,15 +1,15 @@
 {
-  "name": "@yalesites-org/linting-and-formatting",
+  "name": "@yalesites-org/eslint-config-and-other-formatting",
   "version": "0.0.0-development",
   "description": "Linting and formatting config file for YaleSites.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yalesites-org/linting-and-formatting.git"
+    "url": "git://github.com/yalesites-org/eslint-config-and-other-formatting.git"
   },
   "bugs": {
-    "url": "https://github.com/yalesites-org/linting-and-formatting/issues"
+    "url": "https://github.com/yalesites-org/eslint-config-and-other-formatting/issues"
   },
-  "homepage": "https://github.com/yalesites-org/linting-and-formatting",
+  "homepage": "https://github.com/yalesites-org/eslint-config-and-other-formatting",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -39,5 +39,12 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1"
+  },
+  "dependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }

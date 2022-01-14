@@ -28,7 +28,7 @@ You need to have a `.npmrc` file that specifies to get `@yalesites-org` packages
 ### Installing the pacakge
 
 ```bash
-npm install --save-dev @yalesites/linting-and-formatting
+npm install --save-dev @yalesites/eslint-config-and-other-formatting
 ```
 
 ## Prettier config
@@ -37,7 +37,7 @@ Add the following to `package.json`:
 
 ```json
 {
-  "prettier": "@yalesites/linting-and-formatting/prettier.config"
+  "prettier": "@yalesites/eslint-config-and-other-formatting/prettier.config"
 }
 ```
 
@@ -57,6 +57,6 @@ Create `stylelint.config.js` and add the following:
 
 ```js
 module.exports = {
-  extends: ['@yalesites/linting-and-formatting/stylelint.config'],
+  extends: ['@yalesites/eslint-config-and-other-formatting/stylelint.config'],
 };
 ```
