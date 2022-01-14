@@ -10,53 +10,182 @@ YaleSites projects are expected to follow a consistent linting and formatting co
 
 ## Installation
 
-### Prerequisites
+<details><summary>Prerequisites</summary>
 
-You need to have a `.npmrc` file that specifies to get `@yalesites-org` packages from GitHub rather than npm, as well as a personal access token in order to use this project as a GitHub package.
+Each environment that needs to pull @yalesites-org packages from GitHub needs to be authenticated using a "Personal Access Token". This only needs to be done once per-environment.
 
-- Copy the `.npmrc-example` from from this repo into your project, and rename it to `.npmrc`
-- Go to https://github.com/settings/tokens/new
+- Go to `https://github.com/settings/tokens/new`
   - In the "Note" field add something like "YaleSites GitHub Packages"
   - Choose an expiration value
   - Check the box for "write:packages" (this will automatically check all of the "repo" boxes as well)
   - Click "Generate token"
-- In your terminal type `npm login --scope=@yalesites --registry=https://npm.pkg.github.com`
-- Username is your GitHub username (all lower case)
-- Password is the token you just created
-- Email is your public email address
+- In your terminal initiate the authentication process by typing `npm login --scope=@yalesites-org --registry=https://npm.pkg.github.com`
+- Provide in your credentials
+  - Username is your GitHub username (all lower case)
+  - Password is the token you just created
+  - Email is your public email address
+- Done!
 
-### Installing the pacakge
+</details>
+
+### Installing the package
+
+There must be a `.npmrc` file in the project root that tells npm to get `@yalesites-org` packages from GitHub rather than npm.
+
+- Create a `.npmrc` file in your project root (or modify an existing one) and add the following:
 
 ```bash
-npm install --save-dev @yalesites/eslint-config-and-other-formatting
+@yalesites-org:registry=https://npm.pkg.github.com
 ```
 
-## Prettier config
+Then you can install the package like any other npm dependency.
 
-Add the following to `package.json`:
+```bash
+npm install --save-dev @yalesites-org/eslint-config-and-other-formatting
+```
+
+## Prettier
+
+**All projects _must_ utilize Prettier.**
+
+<details><summary>Prettier Setup</summary>
+
+1. To implement Prettier, add the following to your project's `package.json`:
 
 ```json
 {
-  "prettier": "@yalesites/eslint-config-and-other-formatting/prettier.config"
+  "prettier": "@yalesites-org/eslint-config-and-other-formatting/prettier.config"
 }
 ```
 
-## Commitlint config
+2. Then, add this script to the `package.json`:
 
-Create `commitlint.config.js` and add the following:
+```json
+{
+  "scripts": {
+    "prettier": "prettier components --ignore-unknown"
+  }
+}
+```
+
+(Replace `components` with the path to the top-level directory that contains the project's source code.)
+
+</details>
+
+## Commitlint
+
+**All projects _must_ utilize Commitlint.**
+
+<details><summary>Commitlint Setup</summary>
+
+1. To use Commitlint, create the file `commitlint.config.js` in the project root and add the following:
 
 ```js
 module.exports = {
-  extends: ['@yalesites/config-commitlint'],
+  extends: [
+    '@yalesites-org/eslint-config-and-other-formatting/commitlint.config',
+  ],
 };
 ```
 
-## Stylelint config
+2. Create the husky script by running this in the project root: `npx husky add .husky/commit-msg 'npm run husky:commit-msg'`
+3. Then define the script in the `package.json`
 
-Create `stylelint.config.js` and add the following:
+```json
+{
+  "scripts": {
+    "husky:commit-msg": "commitlint --edit $1"
+  }
+}
+```
+
+</details>
+
+## Stylelint
+
+Stylelint must be implemented on projects that define custom stylesheets.
+
+<details><summary>Stylelint Setup</summary>
+
+1. To use it, create the file `stylelint.config.js` in the project root and add the following:
 
 ```js
 module.exports = {
-  extends: ['@yalesites/eslint-config-and-other-formatting/stylelint.config'],
+  extends: [
+    '@yalesites-org/eslint-config-and-other-formatting/stylelint.config',
+  ],
 };
 ```
+
+2. Then, add this script to the `package.json`:
+
+```json
+{
+  "scripts": {
+    "lint:styles": "stylelint 'components/**/*.scss'"
+  }
+}
+```
+
+(Replace `components` with the path to the top-level directory that contains the project's source code.)
+
+</details>
+
+## Eslint
+
+ESlint must be implemented on projects that define custom javascript.
+
+<details><summary>Eslint Setup</summary>
+
+1. To use it, create the file `.eslintrc.js` in the project root and add the following:
+
+```js
+module.exports = {
+  extends: ['@yalesites-org/eslint-config-and-other-formatting'],
+};
+```
+
+2. Then, add this script to the `package.json`:
+
+```json
+{
+  "scripts": {
+    "lint:js": "eslint components"
+  }
+}
+```
+
+(Replace `components` with the path to the top-level directory that contains the project's source code.)
+
+</details>
+
+## lint-staged
+
+Lint-staged is _highly_ recommended since it will only lint modified files, making the development workflow significantly faster than linting an entire codebase whether or not files have changed.
+
+<details><summary>Lint-staged Setup</summary>
+
+1. Create the husky script by running this in the project root: `npx husky add .husky/pre-commit 'npm run husky:pre-commit'`
+2. Then define the script in the `package.json`
+
+```json
+{
+  "scripts": {
+    "husky:pre-commit": "lint-staged"
+  }
+}
+```
+
+3. Finally, define which file types to lint in your `package.json`. Below is an example that runs stylelint on scss files, eslint on js files and prettier on js, scss, and php files. Each project's requirements will vary, and may or may not need all of these (or more) so adjust according to the project needs.
+
+```json
+{
+  "lint-staged": {
+    "components/**/*.scss": ["npm run lint:styles -- --fix"],
+    "components/**/*.js": ["npm run lint:js -- --fix"],
+    "components/**/*.{js,scss,php}": ["npm run prettier -- --write"]
+  }
+}
+```
+
+</details>
