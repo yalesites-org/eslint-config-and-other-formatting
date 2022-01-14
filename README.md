@@ -6,7 +6,6 @@ YaleSites projects are expected to follow a consistent linting and formatting co
 - [Commitlint](https://github.com/conventional-changelog/commitlint) to ensure semantic versioning and changelogs can be fully and accurately updated automatically.
 - [Stylelint](https://stylelint.io/) to ensure error-free and consistently formatted style sheets (scss).
 - [ESLint](https://eslint.org/docs/user-guide/getting-started) to ensure error-free and consistently formatted JavaScript.
-- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) to ensure error-free and consistently formatted PHP.
 
 ## Installation
 
