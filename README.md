@@ -47,11 +47,11 @@ npm install --save-dev @yalesites-org/eslint-config-and-other-formatting
 
 <details><summary>Prettier Setup</summary>
 
-1. To implement Prettier, create the file `.prettierrc.js` in teh project root and add the following:
+1. To implement Prettier, create the file `.prettierrc.js` in the project root and add the following:
 
 ```js
 module.exports = {
-  ...require('@yalesites-org/eslint-config-and-other-formatting'),
+  ...require('@yalesites-org/eslint-config-and-other-formatting/prettier.config'),
 };
 ```
 
@@ -60,7 +60,7 @@ module.exports = {
 ```json
 {
   "scripts": {
-    "prettier": "prettier components --ignore-unknown"
+    "prettier": "prettier components --ignore-unknown --list-different"
   }
 }
 ```
