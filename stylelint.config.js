@@ -14,6 +14,7 @@ module.exports = {
           'mixin',
           'return',
           'use',
+          'while',
         ],
       },
     ],
