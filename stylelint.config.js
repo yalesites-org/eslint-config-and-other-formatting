@@ -8,6 +8,7 @@ module.exports = {
         ignoreAtRules: [
           'each',
           'else',
+          'forward',
           'function',
           'if',
           'include',
