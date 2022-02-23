@@ -9,4 +9,7 @@ module.exports = {
     ecmaVersion: 12,
   },
   root: true,
+  globals: {
+    Drupal: true,
+  },
 };
