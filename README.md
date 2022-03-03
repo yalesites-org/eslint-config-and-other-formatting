@@ -18,10 +18,12 @@ Each environment that needs to pull @yalesites-org packages from GitHub needs to
   - Choose an expiration value
   - Check the box for "write:packages" (this will automatically check all of the "repo" boxes as well)
   - Click "Generate token"
-- On your local machine, create an environment variable. This process varies depending on the shell and operating system you use. It will be something similar to this though: `export KEY=value`.
+- On your local machine, create an environment variable. *See the link below for details
   - The `key` for YaleSites projects needs to be `YALESITES_BUILD_TOKEN`
   - The `value` is the token you created above
 - Done!
+  
+*[Here's a stack overflow post showing how to set persistent environment variables for various shells](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables)
 
 </details>
 
