@@ -88,8 +88,9 @@ module.exports = {
 };
 ```
 
-2. Create the husky script by running this in the project root: `npx husky add .husky/commit-msg 'npm run husky:commit-msg'`
-3. Then define the script in the `package.json`
+2. Install husky in the repository `npx husky install`
+3. Create the husky script by running this in the project root: `npx husky add .husky/commit-msg 'npm run husky:commit-msg'`
+4. Then define the script in the `package.json`
 
 ```json
 {
