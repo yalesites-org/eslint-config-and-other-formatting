@@ -35,6 +35,7 @@ There must be a `.npmrc` file in the project root that tells npm to get `@yalesi
 
 ```bash
 @yalesites-org:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${YALESITES_BUILD_TOKEN}
 ```
 
 Then you can install the package like any other npm dependency.
