@@ -6,6 +6,7 @@ module.exports = {
       true,
       {
         ignoreAtRules: [
+          'at-root',
           'each',
           'else',
           'forward',
