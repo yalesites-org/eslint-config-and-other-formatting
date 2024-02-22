@@ -22,10 +22,9 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@semantic-release/github": "^9.0.4",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.0",
-    "semantic-release": "^21.0.7"
+    "semantic-release": "^23.0.2"
   },
   "peerDependencies": {
     "@commitlint/cli": "^16.0.1",
@@ -38,7 +37,6 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.6",
     "prettier": "<3.0.0",
-    "semantic-release": "^21.0.7",
     "stylelint": "^14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard-scss": "^3.0.0",
