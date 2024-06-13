@@ -22,25 +22,24 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "husky": "^9.1.0",
-    "lint-staged": "^15.2.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "semantic-release": "^23.0.2"
   },
   "peerDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "eslint": "^9.4.0",
+    "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^9.1.0",
-    "lint-staged": "^15.2.5",
-    "prettier": "<3.0.0",
-    "stylelint": "^16.6.1",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-prettier": "^5.0.0",
-    "stylelint-selector-bem-pattern": "^4.0.0"
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-prettier": "^3.0.0",
+    "stylelint-selector-bem-pattern": "^3.0.1"
   }
 }
