@@ -20,8 +20,6 @@ module.exports = {
         ],
       },
     ],
-    'number-leading-zero': 'always',
-    'number-no-trailing-zeros': true,
     'prettier/prettier': true,
     'selector-class-pattern': null,
   },
