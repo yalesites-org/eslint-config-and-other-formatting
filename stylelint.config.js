@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
+  extends: [
+    'stylelint-config-recommended',
+    'stylelint-config-standard-scss',
+    'stylelint-config-prettier',
+  ],
   plugins: ['stylelint-prettier'],
   rules: {
     'at-rule-no-unknown': [
@@ -20,8 +24,6 @@ module.exports = {
         ],
       },
     ],
-    'number-leading-zero': 'always',
-    'number-no-trailing-zeros': true,
     'prettier/prettier': true,
     'selector-class-pattern': null,
   },
