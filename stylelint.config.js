@@ -5,5 +5,8 @@ module.exports = {
     'stylelint-config-prettier',
   ],
   plugins: ['stylelint-prettier'],
-  rules: {},
+  rules: {
+    'prettier/prettier': true,
+    'selector-class-pattern': null,
+  },
 };
